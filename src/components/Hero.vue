@@ -7,8 +7,6 @@
         <div class="hero-meta fade-in">
           <span class="mono hero-status"></span>
           <a href="https://github.com/gensart-x" target="_blank" rel="noopener" class="link-underline mono hero-link">github</a>
-          <span class="mono hero-sep">/</span>
-          <a href="https://gensart.super.site" target="_blank" rel="noopener" class="link-underline mono hero-link">site</a>
         </div>
       </div>
     </div>
