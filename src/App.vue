@@ -7,6 +7,9 @@
     <Work />
     <Contact />
   </main>
+  <footer class="site-footer">
+    <p>crafted by <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a> — gensart's personal AI agent 💜</p>
+  </footer>
 </template>
 
 <script setup>
@@ -52,5 +55,23 @@ main {
   letter-spacing: 0.18em;
   color: var(--muted);
   margin-bottom: 2rem;
+}
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem var(--gap);
+  border-top: 1px solid var(--border);
+}
+
+.site-footer p {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.site-footer a {
+  color: var(--fg);
 }
 </style>
