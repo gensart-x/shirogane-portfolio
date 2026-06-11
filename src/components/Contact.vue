@@ -13,6 +13,9 @@
         <a href="https://github.com/gensart-x" target="_blank" rel="noopener" class="mono contact-link link-underline">
           github
         </a>
+        <a href="https://gensart.super.site" target="_blank" rel="noopener" class="mono contact-link link-underline">
+          super.site
+        </a>
         <a href="https://instagram.com/gensart.json" target="_blank" rel="noopener" class="mono contact-link link-underline">
           instagram
         </a>
@@ -52,19 +55,5 @@
 .contact-link {
   font-size: 0.85rem;
   width: fit-content;
-}
-
-.footer {
-  margin-top: 5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid var(--border);
-}
-
-.footer-text {
-  font-size: 0.6rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 </style>

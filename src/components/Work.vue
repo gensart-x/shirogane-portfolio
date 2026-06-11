@@ -11,6 +11,7 @@
           <div class="work-header">
             <span class="mono work-year">{{ item.year }}</span>
             <h3 class="work-name">{{ item.name }}</h3>
+            <span v-if="item.status" class="mono work-status">{{ item.status }}</span>
           </div>
           <p class="work-desc">{{ item.desc }}</p>
           <div class="work-meta">
@@ -26,33 +27,21 @@
 const projects = [
   {
     year: '2026',
-    name: 'sora-erlyana',
-    desc: 'A modular Discord bot with plugin architecture, built-in moderation, music playback, and AI-powered conversation features.',
-    url: 'https://github.com/gensart-x/sora-erlyana',
-    tags: ['typescript', 'discord.js', 'openai'],
-    featured: true,
+    name: 'eosu (エオス)',
+    status: '🚧 wip',
+    desc: 'Unofficial multi-number WhatsApp gateway. backend still cooking — not sure what i\'m feeding it yet.',
+    url: 'https://kanialater.insomnia247.nl',
+    tags: ['typescript', 'bun'],
+    featured: false,
   },
   {
     year: '2026',
-    name: 'wa-gateway',
-    desc: 'Self-hosted WhatsApp gateway server using Baileys and Elysia on Bun. Minimalist dashboard with real-time QR auth.',
-    url: 'https://kanialater.insomnia247.nl',
-    tags: ['bun', 'baileys', 'elysia'],
+    name: 'sora-erlyana',
+    status: '✅ shipped',
+    desc: 'WhatsApp bot with daily features and group management. built with Node.js and whatsapp-web.js. does what it says on the tin.',
+    url: 'https://github.com/gensart-x/sora-erlyana',
+    tags: ['typescript', 'node.js', 'whatsapp-web.js'],
     featured: true,
-  },
-  {
-    year: '2025',
-    name: 'review-later',
-    desc: 'Password-protected file browser and asset server for personal use. Built for self-hosted media workflows.',
-    url: '#',
-    tags: ['python', 'flask', 'self-hosted'],
-  },
-  {
-    year: '2025',
-    name: 'insomnia247',
-    desc: 'Server management toolkit for automating vhost configuration, MySQL databases, and SSL certificates.',
-    url: '#',
-    tags: ['ruby', 'cli', 'devops'],
   },
 ]
 </script>
@@ -101,6 +90,7 @@ const projects = [
   align-items: baseline;
   gap: 1rem;
   margin-bottom: 0.3rem;
+  flex-wrap: wrap;
 }
 
 .work-year {
@@ -112,6 +102,12 @@ const projects = [
 .work-name {
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.work-status {
+  font-size: 0.6rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
 }
 
 .work-desc {

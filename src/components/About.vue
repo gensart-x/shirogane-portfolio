@@ -5,31 +5,30 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            i design and build software across the stack. focused on
-            systems that are maintainable, performant, and actually
-            useful. i write code in go, typescript, python, and php,
-            and i work with everything from bare metal servers to
-            modern edge runtimes.
+            i write php and typescript mostly. python too, but we're on a break.
+            i genuinely love bun — it's fast, it's modern, it's just a little sharp
+            around the edges. think knife that hasn't been fully sharpened yet.
+            gets the job done. just watch your fingers.
           </p>
           <p>
-            currently exploring distributed systems, automation
-            tooling, and self-hosted infrastructure. i believe in
-            minimalism in both code and design - ship less, maintain
-            less, sleep better.
+            open source is a lifestyle at this point. 34 repos and counting.
+            some useful, some abandoned, all of them loved at least once.
+            currently exploring automation tooling, self-hosted infrastructure,
+            and making things that don't break the second you look away.
           </p>
         </div>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-value">5+</span>
-            <span class="stat-label">years coding</span>
+            <span class="stat-value">34</span>
+            <span class="stat-label">public repos</span>
           </div>
           <div class="stat">
-            <span class="stat-value">30+</span>
-            <span class="stat-label">repos</span>
+            <span class="stat-value">4+</span>
+            <span class="stat-label">yrs active</span>
           </div>
           <div class="stat">
-            <span class="stat-value">full</span>
-            <span class="stat-label">stack focus</span>
+            <span class="stat-value">∞</span>
+            <span class="stat-label">curiosity</span>
           </div>
         </div>
       </div>

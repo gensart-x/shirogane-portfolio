@@ -3,7 +3,7 @@
     <div class="container">
       <div class="hero-content">
         <p class="mono hero-eyebrow fade-in">software developer</p>
-        <h1 class="hero-title fade-in">building systems<br/>that last</h1>
+        <h1 class="hero-title fade-in">shipping code<br/>that works. mostly.</h1>
         <div class="hero-meta fade-in">
           <span class="mono hero-status"></span>
           <a href="https://github.com/gensart-x" target="_blank" rel="noopener" class="link-underline mono hero-link">github</a>
@@ -19,10 +19,10 @@
 import { onMounted, ref } from 'vue'
 
 const statusMessages = [
-  'systems design',
   'fullstack dev',
-  'infra automation',
+  'typescript nerd',
   'open source',
+  'php never die',
 ]
 
 onMounted(() => {
@@ -35,7 +35,6 @@ onMounted(() => {
   }
   cycle()
   const interval = setInterval(cycle, 2200)
-  // cleanup on unmount is handled by Vue lifecycle
   const observer = new MutationObserver(() => {
     if (!document.body.contains(el)) {
       clearInterval(interval)
