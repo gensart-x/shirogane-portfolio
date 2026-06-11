@@ -8,31 +8,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      
+
       - name: Install dependencies
         run: bun install
-      
+
       - name: Build
         run: bun run build
-      
+
       - name: Deploy via SSH
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-          REMOTE_HOST: gensart.dev
-          REMOTE_USER: kakania
-          REMOTE_PORT: 22
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
           SOURCE: dist/
-          TARGET: /home/kakania/public_html/gensart.dev/
+          TARGET: ${{ secrets.DEPLOY_TARGET }}
           EXCLUDE: ""
-          SCRIPT_BEFORE: |
-            mkdir -p /home/kakania/public_html/gensart.dev/
-          SCRIPT_AFTER: |
-            chmod 755 /home/kakania/public_html/gensart.dev/
-            find /home/kakania/public_html/gensart.dev/ -type d -exec chmod 755 {} \;
-            find /home/kakania/public_html/gensart.dev/ -type f -exec chmod 644 {} \;
+          SCRIPT_BEFORE: ${{ secrets.DEPLOY_SCRIPT_BEFORE }}
+          SCRIPT_AFTER: ${{ secrets.DEPLOY_SCRIPT_AFTER }}
