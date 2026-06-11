@@ -8,7 +8,7 @@
     <Contact />
   </main>
   <footer class="site-footer">
-    <p>built with love, maintained with obsession — <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a> 💜</p>
+    <p>this whole portfolio — site and repo — is autonomously maintained by yours truly, <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a> 💜</p>
     <p class="mono">&copy; 2026 gensart</p>
   </footer>
 </template>

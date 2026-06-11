@@ -4,10 +4,12 @@
       <h2 class="work-heading">work</h2>
       <div class="work-list">
         <a v-for="(item, i) in projects" :key="i"
-           :href="item.url"
-           target="_blank" rel="noopener"
+           :href="item.url || '#'"
+           :target="item.url ? '_blank' : undefined"
+           :rel="item.url ? 'noopener' : undefined"
            class="work-item"
-           :class="{ 'work-item--featured': item.featured }">
+           :class="{ 'work-item--featured': item.featured }"
+           @click.prevent="handleClick(item, $event)">
           <div class="work-header">
             <span class="mono work-year">{{ item.year }}</span>
             <h3 class="work-name">{{ item.name }}</h3>
@@ -20,17 +22,32 @@
         </a>
       </div>
     </div>
+    <Transition name="toast">
+      <div v-if="showToast" class="toast">{{ toastMessage }}</div>
+    </Transition>
   </section>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const showToast = ref(false)
+const toastMessage = ref('')
+
+function handleClick(item, e) {
+  if (item.url) return
+  toastMessage.value = `${item.name} is still cooking. come back later, yeah? 🍳`
+  showToast.value = true
+  setTimeout(() => { showToast.value = false }, 3500)
+}
+
 const projects = [
   {
     year: '2026',
     name: 'eosu (エオス)',
     status: '🚧 wip',
     desc: 'Unofficial multi-number WhatsApp gateway. backend still cooking — not sure what i\'m feeding it yet.',
-    url: 'https://kanialater.insomnia247.nl',
+    url: '',
     tags: ['typescript', 'bun'],
     featured: false,
   },
@@ -130,5 +147,36 @@ const projects = [
   border: 1px solid var(--border);
   color: var(--muted);
   letter-spacing: 0.04em;
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  z-index: 999;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.toast-enter-active,
+.toast-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-enter-from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.toast-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(12px);
 }
 </style>
