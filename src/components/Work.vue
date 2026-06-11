@@ -157,11 +157,13 @@ const projects = [
   background: var(--fg);
   color: var(--bg);
   font-family: var(--mono);
-  font-size: 0.75rem;
-  padding: 0.75rem 1.5rem;
+  font-size: 0.7rem;
+  padding: 0.75rem 1.2rem;
   border-radius: 8px;
   z-index: 999;
-  white-space: nowrap;
+  text-align: center;
+  line-height: 1.5;
+  max-width: calc(100vw - 2rem);
   letter-spacing: 0.02em;
 }
 
