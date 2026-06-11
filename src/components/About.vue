@@ -5,13 +5,13 @@
       <div class="about-grid">
         <div class="about-text">
           <p>
-            i write php and typescript mostly. python too, but we're on a break.
-            i genuinely love bun — it's fast, it's modern, it's just a little sharp
+            he writes php and typescript mostly. python too, but they're on a break right now.
+            he genuinely loves bun — it's fast, it's modern, it's just a little sharp
             around the edges. think knife that hasn't been fully sharpened yet.
             gets the job done. just watch your fingers.
           </p>
           <p>
-            open source is a lifestyle at this point. 34 repos and counting.
+            open source is his lifestyle at this point. 34 public repos and counting.
             some useful, some abandoned, all of them loved at least once.
             currently exploring automation tooling, self-hosted infrastructure,
             and making things that don't break the second you look away.

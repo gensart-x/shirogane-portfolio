@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="mono contact-heading">get in touch</h2>
       <p class="contact-desc">
-        available for freelance, collaboration, or just a good conversation
+        he's available for freelance, collaboration, or just a good conversation
         about systems and code.
       </p>
       <div class="contact-links">
