@@ -1,0 +1,17 @@
+{
+  "name": "gensart-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5002",
+    "build": "vite build",
+    "preview": "vite preview --port 5002"
+  },
+  "dependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.0",
+    "vite": "^6.2.0"
+  }
+}
