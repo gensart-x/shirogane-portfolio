@@ -7,9 +7,6 @@
         about systems and code.
       </p>
       <div class="contact-links">
-        <a href="mailto:hi@gensart.super.site" class="mono contact-link link-underline">
-          hi@gensart.super.site
-        </a>
         <a href="https://github.com/gensart-x" target="_blank" rel="noopener" class="mono contact-link link-underline">
           github
         </a>
