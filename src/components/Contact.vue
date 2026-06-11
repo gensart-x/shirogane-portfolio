@@ -18,11 +18,6 @@
         </a>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <p class="mono footer-text">&copy; 2026 gensart - built with vue</p>
-      </div>
-    </footer>
   </section>
 </template>
 

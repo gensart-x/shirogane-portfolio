@@ -9,6 +9,7 @@
   </main>
   <footer class="site-footer">
     <p>crafted by <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a> — gensart's personal AI agent 💜</p>
+    <p class="mono">&copy; 2026 gensart</p>
   </footer>
 </template>
 
@@ -69,6 +70,12 @@ main {
   font-size: 0.7rem;
   color: var(--muted);
   letter-spacing: 0.05em;
+}
+
+.site-footer p.mono {
+  font-size: 0.6rem;
+  margin-top: 0.4rem;
+  opacity: 0.6;
 }
 
 .site-footer a {
