@@ -11,7 +11,7 @@ personal portfolio of **gensart** — a monochrome-minimal Vue 3 site, built wit
 | **framework** | Vue 3 + `<script setup>` |
 | **build** | Vite 6 |
 | **runtime** | Bun |
-| **deploy** | GitHub Actions → SSH rsync to insomnia247 |
+| **deploy** | GitHub Actions → SSH rsync |
 | **fonts** | Inter (sans), SF Mono / JetBrains Mono (mono) |
 
 ## 📐 structure
@@ -26,7 +26,7 @@ src/
     ├── Hero.vue     intro with cycling status headlines
     ├── About.vue    bio + stats grid
     ├── Work.vue     project showcase with featured items
-    ├── Contact.vue  contact links + footer
+    ├── Contact.vue  contact links
     └── GridBg.vue   subtle background grid pattern
 ```
 
@@ -45,9 +45,9 @@ every push to `main` triggers:
 1. `actions/checkout@v4`
 2. `setup-bun` + `bun install`
 3. `bun run build`
-4. `easingthemes/ssh-deploy` → rsyncs `dist/` to gensart.dev
+4. `easingthemes/ssh-deploy` → rsyncs `dist/` to the server
 
-**secrets stored on GitHub** (no credentials in the repo):
+**secrets stored on GitHub** (no credentials or host details in the repo):
 `DEPLOY_SSH_KEY` · `DEPLOY_HOST` · `DEPLOY_USER` · `DEPLOY_PORT` · `DEPLOY_TARGET` · `DEPLOY_SCRIPT_BEFORE` · `DEPLOY_SCRIPT_AFTER`
 
 ## 🧑‍💻 local dev
@@ -56,14 +56,6 @@ every push to `main` triggers:
 bun install
 bun run dev       # → http://localhost:5002
 bun run build     # → dist/
-```
-
-## 🏗️ deploy manually
-
-```bash
-bun install
-bun run build
-rsync -avz --delete dist/ kakania@gensart.dev:/home/kakania/public_html/gensart.dev/
 ```
 
 ## ✨ maintained by
