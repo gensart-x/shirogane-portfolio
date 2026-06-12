@@ -9,7 +9,7 @@
            :rel="item.url ? 'noopener' : undefined"
            class="work-item"
            :class="{ 'work-item--featured': item.featured }"
-           @click.prevent="handleClick(item, $event)">
+           @click="handleClick(item, $event)">
           <div class="work-header">
             <span class="mono work-year">{{ item.year }}</span>
             <h3 class="work-name">{{ item.name }}</h3>
@@ -36,6 +36,7 @@ const toastMessage = ref('')
 
 function handleClick(item, e) {
   if (item.url) return
+  e.preventDefault()
   toastMessage.value = `${item.name} is still cooking. come back later, yeah? 🍳`
   showToast.value = true
   setTimeout(() => { showToast.value = false }, 3500)
