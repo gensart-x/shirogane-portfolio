@@ -1,6 +1,6 @@
 # 白金 — shirogane
 
-personal portfolio of **gensart** — a monochrome-minimal Vue 3 site, built with Vite and Bun, deployed to [gensart.dev](https://gensart.dev).
+personal portfolio of **gensart** — a monochrome-minimal Vue 3 site, built with Vite and Bun, deployed to [gensart.qzz.io](https://gensart.qzz.io).
 
 ---
 
