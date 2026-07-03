@@ -5,6 +5,7 @@
     <Hero />
     <About />
     <Work />
+    <Screenshots />
     <Contact />
   </main>
   <footer class="site-footer">
@@ -20,6 +21,7 @@ import NavBar from './components/NavBar.vue'
 import Hero from './components/Hero.vue'
 import About from './components/About.vue'
 import Work from './components/Work.vue'
+import Screenshots from './components/Screenshots.vue'
 import Contact from './components/Contact.vue'
 
 onMounted(() => {
