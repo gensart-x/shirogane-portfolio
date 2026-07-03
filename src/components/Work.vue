@@ -19,6 +19,23 @@
     <Transition name="toast">
       <div v-if="showToast" class="toast">{{ toastMessage }}</div>
     </Transition>
+
+    <Teleport to="body">
+      <Transition name="modal">
+        <div
+          v-if="galleryIndex !== null"
+          class="gallery-overlay"
+          tabindex="0"
+          @keydown.escape="closeGallery"
+          @click.self="closeGallery"
+        >
+          <button class="gallery-close" @click="closeGallery" aria-label="close">✕</button>
+          <button v-if="galleryIndex > 0" class="gallery-nav gallery-prev" @click="prevImg" aria-label="previous">←</button>
+          <button v-if="galleryIndex < galleryImages.length - 1" class="gallery-nav gallery-next" @click="nextImg" aria-label="next">→</button>
+          <img :src="galleryImages[galleryIndex]" alt="" class="gallery-full" />
+        </div>
+      </Transition>
+    </Teleport>
   </section>
 </template>
 
@@ -28,7 +45,21 @@ import { ref } from 'vue'
 const showToast = ref(false)
 const toastMessage = ref('')
 
+// ── per-work gallery state ──
+const galleryIndex = ref(null)
+const galleryImages = ref([])
+
+function closeGallery() { galleryIndex.value = null; galleryImages.value = [] }
+function prevImg() { if (galleryIndex.value > 0) galleryIndex.value-- }
+function nextImg() { if (galleryIndex.value < galleryImages.value.length - 1) galleryIndex.value++ }
+
 function handleClick(item, e) {
+  if (item.images?.length) {
+    e.preventDefault()
+    galleryImages.value = item.images
+    galleryIndex.value = 0
+    return
+  }
   if (item.url) return
   e.preventDefault()
   toastMessage.value = `${item.name} is still cooking. come back later, yeah? 🍳`
@@ -45,6 +76,10 @@ const projects = [
     url: '',
     tags: ['bun', 'elysia', 'whatsapp-web.js'],
     featured: false,
+    images: [
+      '/images/work/sample-demon-girl.jpg',
+      '/images/work/sample-neko-girl.jpg',
+    ],
   },
   {
     year: '2026',
@@ -54,6 +89,7 @@ const projects = [
     url: 'https://github.com/gensart-x/shirogane-portfolio',
     tags: ['bun', 'vue'],
     featured: true,
+    images: [],
   },
   {
     year: '2024',
@@ -63,6 +99,7 @@ const projects = [
     url: 'https://github.com/gensart-x/sora-erlyana',
     tags: ['node.js', 'express', 'whatsapp-web.js'],
     featured: true,
+    images: [],
   },
 ]
 </script>
@@ -185,4 +222,32 @@ const projects = [
   opacity: 0;
   transform: translateX(-50%) translateY(12px);
 }
+
+/* gallery overlay */
+.gallery-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.85);
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-full {
+  max-width: 90vw; max-height: 85vh; object-fit: contain;
+  border: 1px solid var(--border);
+}
+.gallery-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; color: #fff;
+  font-size: 1.5rem; cursor: pointer;
+  font-family: var(--mono);
+}
+.gallery-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: #fff;
+  font-size: 2rem; cursor: pointer; padding: 0.5rem;
+  font-family: var(--mono);
+}
+.gallery-prev { left: 0.5rem; }
+.gallery-next { right: 0.5rem; }
+
+.modal-enter-active, .modal-leave-active { transition: opacity 0.2s ease; }
+.modal-enter-from, .modal-leave-to { opacity: 0; }
 </style>
