@@ -20,15 +20,4 @@ jobs:
       - name: Build
         run: bun run build
 
-      - name: Deploy via SSH
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-          SOURCE: dist/
-          TARGET: ${{ secrets.DEPLOY_TARGET }}
-          EXCLUDE: ""
-          SCRIPT_BEFORE: ${{ secrets.DEPLOY_SCRIPT_BEFORE }}
-          SCRIPT_AFTER: ${{ secrets.DEPLOY_SCRIPT_AFTER }}
+      # ponytail: SSH deploy removed — local rsync in shirogane-management skill covers this
