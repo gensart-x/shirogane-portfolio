@@ -21,7 +21,10 @@
           v-if="activeIndex !== null"
           class="screenshots-overlay"
           tabindex="0"
+          ref="albumRef"
           @keydown.escape="close"
+          @keydown.left="prev"
+          @keydown.right="next"
           @click.self="close"
         >
           <button class="screenshots-close" @click="close" aria-label="close">✕</button>
@@ -35,9 +38,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
 const activeIndex = ref(null)
+const albumRef = ref(null)
 
 // ponytail: edit these paths when you drop images into public/images/work/
 const images = ref([
@@ -45,10 +49,10 @@ const images = ref([
   { thumb: '/images/work/sample-neko-girl.jpg', full: '/images/work/sample-neko-girl.jpg', alt: 'neko girl reaching out with cat ears' },
 ])
 
-function open(i) { activeIndex.value = i }
+function open(i) { activeIndex.value = i; nextTick(() => albumRef.value?.focus()) }
 function close() { activeIndex.value = null }
 function prev() { if (activeIndex.value > 0) activeIndex.value-- }
-function next() { if (activeIndex.value < images.length - 1) activeIndex.value++ }
+function next() { if (activeIndex.value < images.value.length - 1) activeIndex.value++ }
 </script>
 
 <style scoped>

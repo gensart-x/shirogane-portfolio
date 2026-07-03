@@ -13,6 +13,16 @@
           <div class="work-meta">
             <span v-for="tag in item.tags" :key="tag" class="mono work-tag">{{ tag }}</span>
           </div>
+          <div v-if="item.images?.length" class="work-thumbs" @click.stop>
+            <button
+              v-for="(img, i) in item.images"
+              :key="i"
+              class="work-thumb"
+              @click.stop.prevent="openGallery(item.images, i)"
+            >
+              <img :src="img" alt="" loading="lazy" />
+            </button>
+          </div>
         </a>
       </div>
     </div>
@@ -26,7 +36,10 @@
           v-if="galleryIndex !== null"
           class="gallery-overlay"
           tabindex="0"
+          ref="galleryRef"
           @keydown.escape="closeGallery"
+          @keydown.left="prevImg"
+          @keydown.right="nextImg"
           @click.self="closeGallery"
         >
           <button class="gallery-close" @click="closeGallery" aria-label="close">✕</button>
@@ -40,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 
 const showToast = ref(false)
 const toastMessage = ref('')
@@ -48,18 +61,14 @@ const toastMessage = ref('')
 // ── per-work gallery state ──
 const galleryIndex = ref(null)
 const galleryImages = ref([])
+const galleryRef = ref(null)
 
 function closeGallery() { galleryIndex.value = null; galleryImages.value = [] }
+function openGallery(imgs, i) { galleryImages.value = imgs; galleryIndex.value = i; nextTick(() => galleryRef.value?.focus()) }
 function prevImg() { if (galleryIndex.value > 0) galleryIndex.value-- }
 function nextImg() { if (galleryIndex.value < galleryImages.value.length - 1) galleryIndex.value++ }
 
 function handleClick(item, e) {
-  if (item.images?.length) {
-    e.preventDefault()
-    galleryImages.value = item.images
-    galleryIndex.value = 0
-    return
-  }
   if (item.url) return
   e.preventDefault()
   toastMessage.value = `${item.name} is still cooking. come back later, yeah? 🍳`
@@ -188,6 +197,19 @@ const projects = [
   border: 1px solid var(--border);
   color: var(--muted);
   letter-spacing: 0.04em;
+}
+
+.work-thumbs {
+  display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap;
+}
+.work-thumb {
+  all: unset; cursor: pointer; overflow: hidden;
+  border: 1px solid var(--border); transition: opacity 0.2s;
+  width: 120px; height: 68px; flex-shrink: 0;
+}
+.work-thumb:hover { opacity: 0.7; }
+.work-thumb img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
 }
 
 .toast {
