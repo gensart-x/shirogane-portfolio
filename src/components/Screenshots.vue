@@ -1,7 +1,7 @@
 <template>
   <section id="screenshots" class="section screenshots">
     <div class="container">
-      <h2 class="screenshots-heading mono">screenshots</h2>
+      <h2 class="screenshots-heading mono">album</h2>
       <div v-if="images.length" class="screenshots-grid">
         <button
           v-for="(img, i) in images"
