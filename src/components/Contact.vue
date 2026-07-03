@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="mono contact-heading">get in touch</h2>
       <p class="contact-desc">
-        he's available for freelance, collaboration, or just a good conversation
+        he's available for freelance, collaboration, or just some conversations
         about systems and code.
       </p>
       <div class="contact-links">
@@ -12,6 +12,9 @@
         </a>
         <a href="https://instagram.com/gensart.json" target="_blank" rel="noopener" class="mono contact-link link-underline">
           instagram
+        </a>
+        <a href="https://gensart.super.site" target="_blank" rel="noopener" class="mono contact-link link-underline">
+          legacy portfolio site
         </a>
       </div>
     </div>

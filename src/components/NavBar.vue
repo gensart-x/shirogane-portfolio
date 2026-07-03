@@ -3,8 +3,8 @@
     <div class="container nav-inner">
       <a href="#top" class="nav-brand mono">gensart</a>
       <nav class="nav-links">
-        <a href="#work" class="link-underline">work</a>
         <a href="#about" class="link-underline">about</a>
+        <a href="#work" class="link-underline">work</a>
         <a href="#contact" class="link-underline">contact</a>
       </nav>
     </div>

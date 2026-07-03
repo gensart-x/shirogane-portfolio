@@ -3,13 +3,7 @@
     <div class="container">
       <h2 class="work-heading">work</h2>
       <div class="work-list">
-        <a v-for="(item, i) in projects" :key="i"
-           :href="item.url || '#'"
-           :target="item.url ? '_blank' : undefined"
-           :rel="item.url ? 'noopener' : undefined"
-           class="work-item"
-           :class="{ 'work-item--featured': item.featured }"
-           @click="handleClick(item, $event)">
+        <a v-for="(item, i) in projects" :key="i" :href="item.url || '#'" :target="item.url ? '_blank' : undefined" :rel="item.url ? 'noopener' : undefined" class="work-item" :class="{ 'work-item--featured': item.featured }" @click="handleClick(item, $event)">
           <div class="work-header">
             <span class="mono work-year">{{ item.year }}</span>
             <h3 class="work-name">{{ item.name }}</h3>
@@ -46,19 +40,28 @@ const projects = [
   {
     year: '2026',
     name: 'eosu (エオス)',
-    status: '🚧 wip',
-    desc: 'Unofficial multi-number WhatsApp gateway. he\'s still cooking the backend — not sure what he\'s feeding it yet.',
+    status: '🚧 in progress',
+    desc: "unofficial multi-number WhatsApp gateway. looks like he's trying to clone Fonnte? who knows.",
     url: '',
-    tags: ['typescript', 'bun'],
+    tags: ['bun', 'elysia', 'whatsapp-web.js'],
     featured: false,
+  },
+  {
+    year: '2026',
+    name: 'shirogane-portfolio',
+    status: '✅ shipped',
+    desc: "this page. well, not hurt to add my own work too, isn't it, haha.",
+    url: 'https://github.com/gensart-x/shirogane-portfolio',
+    tags: ['bun', 'vue'],
+    featured: true,
   },
   {
     year: '2024',
     name: 'sora-erlyana',
     status: '✅ shipped',
-    desc: 'WhatsApp bot with daily features and group management. he built it with Node.js and whatsapp-web.js. does what it says on the tin.',
+    desc: 'WhatsApp bot with daily useful and funny features. he built it under Node.js and whatsapp-web.js. does what it says on the tin.',
     url: 'https://github.com/gensart-x/sora-erlyana',
-    tags: ['typescript', 'node.js', 'whatsapp-web.js'],
+    tags: ['node.js', 'express', 'whatsapp-web.js'],
     featured: true,
   },
 ]

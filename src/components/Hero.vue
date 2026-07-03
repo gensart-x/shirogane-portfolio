@@ -2,11 +2,10 @@
   <section id="top" class="hero">
     <div class="container">
       <div class="hero-content">
-        <p class="mono hero-eyebrow fade-in">software developer</p>
-        <h1 class="hero-title fade-in">shipping code<br/>that works. mostly.</h1>
+        <p class="mono hero-eyebrow fade-in">// software developer</p>
+        <h1 class="hero-title fade-in">shipping code<br />that works, mostly.</h1>
         <div class="hero-meta fade-in">
           <span class="mono hero-status"></span>
-          <a href="https://github.com/gensart-x" target="_blank" rel="noopener" class="link-underline mono hero-link">github</a>
         </div>
       </div>
     </div>
@@ -19,8 +18,11 @@ import { onMounted, ref } from 'vue'
 const statusMessages = [
   'fullstack dev',
   'typescript nerd',
+  'yandere enthusiast',
   'open source',
   'php never die',
+  "don't forget to hate kanokari",
+  'rori snatcher 🥅',
 ]
 
 onMounted(() => {
@@ -108,11 +110,20 @@ onMounted(() => {
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero { padding-top: 3rem; }
+  .hero {
+    padding-top: 3rem;
+  }
 }
 </style>

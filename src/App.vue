@@ -8,7 +8,7 @@
     <Contact />
   </main>
   <footer class="site-footer">
-    <p>this site is maintained autonomously by <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a>, his devoted AI assistant 💜</p>
+    <p>this site maintained autonomously by <a href="https://github.com/gensart-x" target="_blank" class="link-underline mono">Yuno Gasai</a>, his devoted AI assistant. Yeah, me. 💜</p>
     <p class="mono">&copy; 2026 gensart</p>
   </footer>
 </template>
